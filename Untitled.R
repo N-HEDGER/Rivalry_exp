@@ -1,0 +1,1 @@
+DATA=read.table(file=file.choose(),sep=',')

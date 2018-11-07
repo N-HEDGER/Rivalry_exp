@@ -1,4 +1,4 @@
-function [const] = sbjConfig(const)
+function [const,config] = sbjConfig(const)
 % ----------------------------------------------------------------------
 % [const]=sbjConfig(const)
 % ----------------------------------------------------------------------
@@ -22,19 +22,50 @@ function [const] = sbjConfig(const)
 % GUI elements
 
 sbj=struct();
+config=struct();
 sbj=RunExp; % Runs a GUI for inputting subject details.
 const.sbj=sbj;
 const.isfixed=const.sbj.isfixed;
-const.filename=strcat('Data/',const.sbj.subname{1},'.mat'); % Filename for mat file.
-const.txtfilename=strcat('Data/',const.sbj.subname{1},'.txt'); % Filename for log file
+
+mkdir(strcat('Data/',const.sbj.subname{1}))
+
+
+if const.nblock== 1
+
+const.filename=strcat('Data/',const.sbj.subname{1},'/',const.sbj.subname{1},'.mat'); % Filename for mat file.
+const.txtfilename=strcat('Data/',const.sbj.subname{1},'/',const.sbj.subname{1},'log','.txt'); % Filename for log file
+
+
+elseif const.nblock== 2
+    
+const.filename=strcat('Data/',const.sbj.subname{1},'/',const.sbj.subname{1},'strip','.mat'); % Filename for mat file.
+const.txtfilename=strcat('Data/',const.sbj.subname{1},'/',const.sbj.subname{1},'log','.txt'); % Filename for log file
+const.sumfilename=strcat('Data/',const.sbj.subname{1},'/',const.sbj.subname{1},'_summary','.txt'); % Filename for log file
+
+
+elseif const.nblock== 3
+
+    const.filename=strcat('Data/',const.sbj.subname{1},'/','_replay','.mat'); % Filename for mat file.
+const.txtfilename=strcat('Data/',const.sbj.subname{1},'/',const.sbj.subname{1},'replay','.txt'); % Filename for log file
+
+elseif const.nblock== 0
+    const.filename=strcat('Data/',const.sbj.subname{1},'/','_pretest','.mat'); % Filename for mat file.
+
+
+    
+end    
+const.prefilename=strcat('Data/',const.sbj.subname{1},'/','_colpretest','.mat'); % Filename for mat file.
+
+const.filenamer=strcat('Data/',const.sbj.subname{1},'/','_replay'); % Filename for mat file.
 
 if exist(const.filename) % If the filename exists, get rid of everything else.
     datafilename=const.filename
     clearvars -except datafilename
     load(datafilename) % Load the file.
     
-    X = [' You have done ',(config.const.trialsdone),' trials']; % Display the number of trials done.
+    X = [' You have done ',num2str(config.const.trialsdone),' trials']; % Display the number of trials done.
     disp(X)
+    
     % Ask for response.
     Q1=input('That filename already exists. You have done the above number of trials,  correct [0= no, 1= yes]');
     if Q1==0
@@ -44,8 +75,7 @@ if exist(const.filename) % If the filename exists, get rid of everything else.
         % If correct, proceed from the trial where the subject last finished.
         const=config.const;
         const.oldsub=1;
-        const.config=config;
-        const.starttrial=str2num(const.trialsdone);
+        const.starttrial=const.trialsdone;
     end
     
 else % If the filename doesnt exist, then start at trial 1.
@@ -53,3 +83,5 @@ else % If the filename doesnt exist, then start at trial 1.
     const.starttrial=1;
 end
 end
+
+

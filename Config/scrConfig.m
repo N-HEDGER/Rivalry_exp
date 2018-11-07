@@ -32,15 +32,9 @@ scr.clr_depth = Screen('PixelSize', scr.scr_num);
 % Frame rate : (fps)
 scr.frame_duration =1/(Screen('FrameRate',scr.scr_num));
 
-% Frame rate : (hertz)
-scr.hz = 1/(scr.frame_duration);
- if (scr.hz >= 1.1*const.desiredFD || scr.hz <= 0.9*const.desiredFD);
-    % error('Incorrect refresh rate => Please restart the program after changing the refresh rate to %i Hz',const.desiredFD);
- end
-
 
 % Subject dist
-scr.dist = 67;             
+scr.dist = 90;             
 
 % Center of the screen :
 scr.x_mid = (scr.scr_sizeX/2.0);

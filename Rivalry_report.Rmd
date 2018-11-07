@@ -1,0 +1,15 @@
+---
+title: "Rivalry_report"
+author: Nick Hedger
+output: html_document
+---
+
+
+```{r content,fig.width=12,fig.height=6}
+for (i in 1:length(unique(FRAME$trial))){
+  plot_observer(FRAME,1,i)
+  
+}
+
+
+```

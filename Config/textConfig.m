@@ -16,17 +16,29 @@ function [text]=textConfig
 % Version :     1.0
 % ----------------------------------------------------------------------
 text.formatSpecStart=('Subject started at: %s');
-text.formatSpecTexture=('Textures drawn at: %f');
-text.formatSpecFlip=('Textures flipped at: %f');
-text.formatSpecResponse=('Response made at: %f');
 text.formatSpecQuit=('Subject quitted at: %s');
-text.formatSpecReStart=('Subject restarted at: %s');
+text.formatSpecSave=('Data saved at: %s');
 instruct='Take a good look at the images';
 text.instruct=sprintf(instruct);
-text.stimlabel={'social','nonsocial'};
+text.stimlabels={'social','nonsocial'};
 text.scramlabel={'intact','scrambled'};
 text.durlabel={};
 text.targmorphstrengthlabel={'low','high'};
-text.formatSpecTrial=('Trial %s Stimtype: %s Scram type: %s Duration: %s');
+text.formatSpecTrial=('Trial: %s Trialtype: %s Stimtype: %s \n');
+
+
+
+text.conglabels={'congruent','texture','incongruent'};
+text.colabels={'face green','house green'};
+
+text.stimlabels={'face','house'};
+text.orientlabels={'horizontal split','vertical split'};
+text.triallabels={'rivalry','replay'};
+
+text.formatSpecTrial=('Trial %s ,Trial type %s ,Stimtype: %s ,Greenstim: %s,  Orientation %s');
+
+
+text.formatSpecTrialstrip=('Trial %s Stimtype: %s Congtype %s Orientation %s Direction %s Speed %s');
+
 
 end
