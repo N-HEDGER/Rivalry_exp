@@ -24,7 +24,7 @@ scr.scr_num = max(scr.all);
 [scr.scr_sizeX, scr.scr_sizeY]=Screen('WindowSize', scr.scr_num);
 
 % Size of the display :
-scr.disp_sizeX = 475;scr.disp_sizeY=270; 
+scr.disp_sizeX = 400;scr.disp_sizeY=300; 
 
 % Pixels size:
 scr.clr_depth = Screen('PixelSize', scr.scr_num);

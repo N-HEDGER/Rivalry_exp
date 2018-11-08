@@ -9,13 +9,10 @@ sizer=size(im);
 if or==1
 midpoint=floor(sizer(2)/2);
 % im(:,(midpoint-val):(midpoint+val),:)=imgaussfilt(im(:,(midpoint-val):(midpoint+val),:),sd,'FilterDomain','spatial');
-im((midpoint-val):(midpoint+val),:,:)=im((midpoint-val):(midpoint+val),:,:);
-
 else
 midpoint=floor(sizer(1)/2);
 % im((midpoint-val):(midpoint+val),:,:)=imgaussfilt(im((midpoint-val):(midpoint+val),:,:),sd,'FilterDomain','spatial');
 
-im((midpoint-val):(midpoint+val),:,:)=im((midpoint-val):(midpoint+val),:,:);
 
 end
 

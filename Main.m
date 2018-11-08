@@ -61,7 +61,7 @@ else
  % ------------------ 
 Screen('Preference', 'SkipSyncTests', 1) ;   
 
-[scr.main,scr.rect] = Screen('OpenWindow',scr.scr_num,const.background_color, [0 0 1920 800], scr.clr_depth,2);
+[scr.main,scr.rect] = Screen('OpenWindow',scr.scr_num,const.background_color, [], scr.clr_depth,2);
 Screen(scr.main,'BlendFunction',GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);    
 %const.awrect=CenterRect(const.baseBar, scr.rect);
 

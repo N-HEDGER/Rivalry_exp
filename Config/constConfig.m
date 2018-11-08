@@ -28,7 +28,7 @@ const.element_sizeVal=4; % Size of image (DVA)
 const.element_size=round(vaDeg2pix(const.element_sizeVal,scr)); % Size of image in pixels.
 const.ctr=scr.mid; % Middle of the screen.
 %const.sep_sizeVal=15; % Separation of images.
-const.sep_sizeVal=5;
+const.sep_sizeVal=8;
 const.sep=round(vaDeg2pix(const.sep_sizeVal,scr)/2)+round(const.element_size/2);
 
 const.asp=1; % Aspect ratio of images.
@@ -61,7 +61,7 @@ const.lineextend=50;
 const.diff=0.5;
 
 
-const.triallength=10;
+const.triallength=15;
 const.reps=1;
 
 scr.rect=[0, 0, scr.scr_sizeX, scr.scr_sizeY];
