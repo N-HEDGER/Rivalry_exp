@@ -2,7 +2,7 @@
 % Slit size= .14 deg
 % Slit speed 3.5 dps
 % 4 DVA.
-
+Stim.Frametex=Screen('MakeTexture',scr.main,Stim.Frame);
 log_txt=sprintf(text.formatSpecTrialstrip,num2str(i),text.stimlabels{Trialevents.stripmat(i,2)},text.conglabels{Trialevents.stripmat(i,3)},text.orientlabels{Trialevents.stripmat(i,5)},num2str(Trialevents.stripmat(i,6)),num2str(Trialevents.stripmat(i,7)));
 fprintf(const.log_text_fid,'%s\n',log_txt);
 fprintf(log_txt); 
